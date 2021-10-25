@@ -1,0 +1,49 @@
+create table if not exists Genres(
+ID SERIAL primary key,
+Name_of_the_genre varchar(15) not null unique
+);
+
+create table if not exists Artists(
+ID SERIAL primary key REFERENCES Genres (id),
+Name_of_the_artist varchar(15) not null unique
+);
+
+create table if not exists Albums(
+ID SERIAL primary key REFERENCES Artists (id),
+Year_of_release integer not null,
+Album_name varchar(15) not null unique
+);
+
+create table if not exists Tracks(
+ID SERIAL primary key,
+Track_name varchar(15) not null unique,
+Duration integer not null,
+Album_id integer REFERENCES Albums (id)
+);
+
+create table if not exists Collection(
+ID SERIAL primary key,
+Name_colletion varchar(15) not null unique,
+Year_of_release integer not null,
+Track_id integer references Tracks (id),
+Album_id integer references Albums (id)
+);
+
+create table if not exists News(
+ID SERIAL primary key,
+News text not null
+);
+
+create table if not exists Podcasts(
+ID SERIAL primary key,
+Name_of_podcast varchar(20) not null
+);
+
+create table if not exists S_earch(
+S_earch varchar(20) not null
+);
+
+create table if not exists New_products(
+ID SERIAL primary key,
+New_products text not null
+);
