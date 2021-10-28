@@ -39,5 +39,5 @@ Album_id integer references Albums (id)
 
 create table if not exists Track_Collection(
 Collection_id integer references Collection (id),
-Track_id integer references Tracks (id),
+Track_id integer references Tracks (id)
 );
