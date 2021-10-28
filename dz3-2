@@ -4,14 +4,9 @@ Dept_name varchar(30) not null unique,
 Head_of_Department varchar(30) not null
 );
 
-create table if not exists Head_of_department(
-ID SERIAL primary key,
-Head_name varchar(30) not null unique
-);
-
 create table if not exists employee(
 ID SERIAL primary key,
 Name varchar(30) not null,
-name_department varchar(30) not null unique references Department (dept_name),
-head_of_department varchar(30) not null unique references Head_of_department (head_name)
+id_department integer not null unique references Department (id),
+id_head_of_department integer not null unique references employee (id)
 );
